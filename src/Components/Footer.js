@@ -3,9 +3,9 @@ import React from 'react';
 const styles = {
     footer: {
         height: 'auto',
-        backgroundColor: '#282c34',
+        backgroundColor: '#0C1821',
         flexShrink: 0,
-        color: 'white',
+        color: '#CCC9DC',
         position: 'fixed',
         width: '100%',
         bottom: 0,
@@ -15,7 +15,7 @@ const styles = {
         padding: '4px',
     },
     link: {
-        color: '#E1DEDC',
+        color: '#CCC9DC',
         textDecoration: 'none',
     }
 }

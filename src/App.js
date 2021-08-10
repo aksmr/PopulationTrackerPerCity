@@ -2,23 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import {Footer} from './Components/Footer';
 import {SearchBar} from './Components/SearchBar';
+import {Informations} from './Components/Informations';
 
 function App() {
+	
 	return (
 		<div className="App">
-			<SearchBar />
 			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>Edit <code>src/App.js</code> and save to reload.</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
+				<h1>👨‍👩‍👦 Population number tracker</h1><hr />
+				<h4>Welcome to our tracker!</h4>
+				<SearchBar />
 			</header>
+			<Informations />
 			<Footer />
 		</div>
 	);

@@ -19,6 +19,17 @@ export class SearchBar extends React.Component {
                 this.setState({
                     items: result
                 });
+
+                const groupSelect = document.getElementById('inputGroupSelect');
+                const listOfCities = this.state.items;
+                let opt;
+                for(let index=0; index < listOfCities.length; index++) {
+                    opt = document.createElement("option");
+                    opt.value = listOfCities[index].nom.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+                    opt.id = listOfCities[index].nom.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+                    opt.text = listOfCities[index].nom;
+                    groupSelect.add(opt);
+                }
             },
 
             (error) => {
@@ -30,28 +41,11 @@ export class SearchBar extends React.Component {
     }
 
     render() {
-        
-        const FindAndUpdateList = () => {
-            
-            const searchElement = document.getElementById('SearchBar_searchInput');
-            const searchInput = searchElement.value.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-            const myList = this.state.items;
-
-            const result = myList.filter(item => item.nom.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(searchInput))
-            
-            let suggestion = ``;
-            if(searchInput !== '') {
-                result.forEach(resultItem => 
-                    suggestion += `<div className="dropdown-item" href="#">${resultItem.nom}</div>`
-                )
-            }
-            document.getElementById("resultInput").innerHTML = suggestion;
-        }
-        
         return(
-            <div className="dropdown">
-                <input className="form-control" id='SearchBar_searchInput' type="search" placeholder="Search 🔍" aria-label="Search" onChange={FindAndUpdateList} />
-                <div id="resultInput" className="suggestion"></div>
+            <div class="input-group d-flex justify-content-around">
+                <select className="custom-select form-select-lg mb-3" id="inputGroupSelect">
+                    <option selected>Choose a city...</option>
+                </select>
             </div>
         )
     }
