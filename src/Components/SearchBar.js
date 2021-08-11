@@ -1,6 +1,13 @@
 import React from 'react';
+import {Informations} from './Informations';
 
-
+const styles = {
+    selectButton: {
+        backgroundColor: '#0C1821',
+        fontFamily: 'Amatic SC',
+        color: '#CCC9DC',
+    }
+}
 
 export class SearchBar extends React.Component {
     constructor(props) {
@@ -41,11 +48,24 @@ export class SearchBar extends React.Component {
     }
 
     render() {
+        const printCityName = () => {
+            var select = document.getElementById('inputGroupSelect');
+            var option = select.options[select.selectedIndex].text;
+            if(option !== `Choose a city...`) {
+                document.getElementById("nomVille").innerHTML = option;
+            } else {
+                document.getElementById("nomVille").innerHTML = ``;
+            }
+        }
+
         return(
-            <div class="input-group d-flex justify-content-around">
-                <select className="custom-select form-select-lg mb-3" id="inputGroupSelect">
-                    <option selected>Choose a city...</option>
-                </select>
+            <div>
+                <div class="input-group d-flex justify-content-around" style = {styles.selectButton}>
+                    <select className="custom-select form-select-lg mb-3" id="inputGroupSelect" onChange={printCityName}>
+                        <option selected>Choose a city...</option>
+                    </select>
+                </div>
+                <Informations />
             </div>
         )
     }

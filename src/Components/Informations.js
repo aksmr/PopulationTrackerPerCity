@@ -1,6 +1,10 @@
 import React from 'react';
 
 const styles = {
+    global: {
+        backgroundColor: '#324A5F',
+        color: '#F3F3F7',
+    }
     // global: {
     //     height: 'auto',
     //     backgroundColor: '#324A5F',
@@ -21,33 +25,6 @@ const styles = {
 }
 
 export class Informations extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            items: []
-        };
-    }
-
-    componentDidMount() {
-        fetch("https://geo.api.gouv.fr/departements/93/communes?fields=nom,code,codesPostaux,codeDepartement,departement,codeRegion,region,population&format=json&geometry=centre")
-        .then(res => res.json())
-        .then(
-            (result) => {
-                this.setState({
-                    items: result
-                });
-                document.getElementById("nomVille").innerHTML = this.state.items[0].nom;
-            },
-
-            (error) => {
-                this.setState({
-                    error
-                });
-            }
-        )
-    }
-
     render() {
         return(
             <div style={styles.global}>

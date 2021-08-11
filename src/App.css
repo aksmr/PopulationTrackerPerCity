@@ -1,15 +1,15 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-header {
-  background-color: #0C1821;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Amatic SC', cursive;
-  font-size: calc(10px + 2vmin);
-  color: #CCC9DC;
+	background-color: #0C1821;
+	min-height: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Amatic SC', cursive;
+	font-size: calc(10px + 2vmin);
+	color: #CCC9DC;
 }
