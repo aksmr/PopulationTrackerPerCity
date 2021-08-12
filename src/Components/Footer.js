@@ -26,7 +26,9 @@ export const Footer = () => {
     return(
         <footer className="App-footer" style={styles.footer}>
             <div><strong>SHEIKH Productions © {new Date().getFullYear()}</strong></div>
-            <div><small><a href="https://www.linkedin.com/in/simon-abulkalam" style={styles.link}>Simon ABUL KALAM</a></small></div>
+            <div><small>
+                &gt;&gt; <a href="https://www.linkedin.com/in/simon-abulkalam" style={styles.link}>Simon ABUL KALAM</a> &lt;&lt;
+            </small></div>
         </footer>
     )
 }
