@@ -14,6 +14,7 @@ const styles = {
         textAlign: 'center',
         padding: '4px',
         fontFamily: 'Amatic SC',
+        fontSize: '20px',
     },
     link: {
         color: '#CCC9DC',
@@ -21,10 +22,10 @@ const styles = {
     }
 }
 
-export const Footer = (props) => {
+export const Footer = () => {
     return(
         <footer className="App-footer" style={styles.footer}>
-            <div><strong>Copyright © {new Date().getFullYear()} SHEIKH Productions</strong></div>
+            <div><strong>SHEIKH Productions © {new Date().getFullYear()}</strong></div>
             <div><small><a href="https://www.linkedin.com/in/simon-abulkalam" style={styles.link}>Simon ABUL KALAM</a></small></div>
         </footer>
     )
