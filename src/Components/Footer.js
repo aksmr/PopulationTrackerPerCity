@@ -13,6 +13,7 @@ const styles = {
         boxShadow: '0 -5px 5px rgba(0,0,0,.14)',
         textAlign: 'center',
         padding: '4px',
+        fontFamily: 'Amatic SC',
     },
     link: {
         color: '#CCC9DC',
