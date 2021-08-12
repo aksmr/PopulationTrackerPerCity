@@ -6,20 +6,32 @@ const styles = {
         backgroundColor: '#0C1821',
         fontFamily: 'Amatic SC',
         color: '#CCC9DC',
+    },
+    width: {
+        width: '45%',
     }
 }
+
+const partZero = "👋🏽🤙🏽";
+const partOne = "This application makes it possible to know the number of citizens per city thanks to an API that provides this number in real time.";
+const partTwo = "To display the data for a city, please select a city from the drop-down list above.";
+const partThree = "Thank you very much!";
 
 export class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             error: null,
-            items: []
+            items: [],
+            textWritten: [partZero, partOne, partTwo, partThree],
         };
     }
 
     componentDidMount() {
-        fetch("https://geo.api.gouv.fr/departements/93/communes?fields=nom,code,codesPostaux,codeDepartement,departement,codeRegion,region,population&format=json&geometry=centre")
+        // let url = `https://geo.api.gouv.fr/communes?fields=nom,code,departement,region,population&format=json&geometry=centre`;
+        let url = "https://geo.api.gouv.fr/departements/93/communes?fields=nom,code,codesPostaux,codeDepartement,departement,codeRegion,region,population&format=json&geometry=centre";
+
+        fetch(url)
         .then(res => res.json())
         .then(
             (result) => {
@@ -51,21 +63,44 @@ export class SearchBar extends React.Component {
         const printCityName = () => {
             var select = document.getElementById('inputGroupSelect');
             var option = select.options[select.selectedIndex].text;
+            let informationsAboutTheCity = this.state.items.filter(item => item.nom === option)[0];
+            let informationsContainer;
+
             if(option !== `Choose a city...`) {
-                document.getElementById("nomVille").innerHTML = option;
+                document.getElementById("nomVille").innerHTML = `🏡 ${option} 🌴`;
+
+                document.getElementById("codeINSEE").innerHTML = `INSEE Code ${informationsAboutTheCity.code}`;
+
+                informationsContainer = `${informationsAboutTheCity.departement.nom} (${informationsAboutTheCity.departement.code}) - ${informationsAboutTheCity.region.nom}`;
+                document.getElementById("departementETregion").innerHTML = informationsContainer;
+
+                informationsContainer = `<br />The population is <span style="color: #c2cc90">${informationsAboutTheCity.population}</span> !`;
+                document.getElementById("population").innerHTML = informationsContainer;
+
+                document.getElementById("emptyChoice").innerHTML = ``;
+
             } else {
                 document.getElementById("nomVille").innerHTML = ``;
+                document.getElementById("codeINSEE").innerHTML = ``;
+                document.getElementById("departementETregion").innerHTML = ``;
+                document.getElementById("population").innerHTML = ``;
+
+                informationsContainer = `<span style="font-size: 80px;">${this.state.textWritten[0]}</span><br />
+                ${this.state.textWritten[1]}<br />
+                ${this.state.textWritten[2]}<br />
+                <span style="color: #fe96a0;">${this.state.textWritten[3]}</span>`;
+                document.getElementById("emptyChoice").innerHTML = informationsContainer;
             }
         }
 
         return(
             <div>
                 <div class="input-group d-flex justify-content-around" style = {styles.selectButton}>
-                    <select className="custom-select form-select-lg mb-3" id="inputGroupSelect" onChange={printCityName}>
+                    <select style={styles.width} className="custom-select form-select-lg mb-3" id="inputGroupSelect" onChange={printCityName}>
                         <option selected>Choose a city...</option>
                     </select>
                 </div>
-                <Informations />
+                <Informations textWritten={this.state.textWritten} />
             </div>
         )
     }

@@ -12,4 +12,6 @@
 	font-family: 'Amatic SC', cursive;
 	font-size: calc(10px + 2vmin);
 	color: #CCC9DC;
+	padding-top: 50px;
+	padding-bottom: 10px;
 }

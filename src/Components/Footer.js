@@ -6,7 +6,7 @@ const styles = {
         backgroundColor: '#0C1821',
         flexShrink: 0,
         color: '#CCC9DC',
-        position: 'fixed',
+        // position: 'fixed',
         width: '100%',
         bottom: 0,
         left: 0,
@@ -23,7 +23,7 @@ const styles = {
 export const Footer = (props) => {
     return(
         <footer className="App-footer" style={styles.footer}>
-            <div><strong>Copyright © 2021 SHEIKH Productions</strong></div>
+            <div><strong>Copyright © {new Date().getFullYear()} SHEIKH Productions</strong></div>
             <div><small><a href="https://www.linkedin.com/in/simon-abulkalam" style={styles.link}>Simon ABUL KALAM</a></small></div>
         </footer>
     )
