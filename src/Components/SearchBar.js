@@ -172,7 +172,7 @@ export class SearchBar extends React.Component {
                 informationsContainer = `${informationsAboutTheCity.departement.nom} (${informationsAboutTheCity.departement.code}) - ${informationsAboutTheCity.region.nom}`;
                 document.getElementById("departementETregion").innerHTML = informationsContainer;
 
-                informationsContainer = `<br />The population is <span style="color: #c2cc90">${informationsAboutTheCity.population}</span> !`;
+                informationsContainer = `<br />The population is <span style="color: #c2cc90">${informationsAboutTheCity.population.toLocaleString('en-GB')}</span> !`;
                 document.getElementById("population").innerHTML = informationsContainer;
 
                 document.getElementById("emptyChoice").innerHTML = ``;
