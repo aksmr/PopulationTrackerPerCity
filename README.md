@@ -3,4 +3,4 @@ This application will allow you to know the number of residents in a city. Simpl
 
 This website was coded using the JavaScript library called [_ReactJS_](https://reactjs.org/).
 
-You can find the link to the website by clicking [here](https://number-population-tracker.herokuapp.com/).
+You can find the link to the website by clicking [here](https://aksmr.github.io/PopulationTrackerPerCity/).
