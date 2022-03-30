@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PopulationTrackerPerCity/static/css/main.27347b65.css",
+    "main.js": "/PopulationTrackerPerCity/static/js/main.e3d97baa.js",
+    "static/js/787.5b60d755.chunk.js": "/PopulationTrackerPerCity/static/js/787.5b60d755.chunk.js",
+    "index.html": "/PopulationTrackerPerCity/index.html",
+    "main.27347b65.css.map": "/PopulationTrackerPerCity/static/css/main.27347b65.css.map",
+    "main.e3d97baa.js.map": "/PopulationTrackerPerCity/static/js/main.e3d97baa.js.map",
+    "787.5b60d755.chunk.js.map": "/PopulationTrackerPerCity/static/js/787.5b60d755.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27347b65.css",
+    "static/js/main.e3d97baa.js"
+  ]
+}
